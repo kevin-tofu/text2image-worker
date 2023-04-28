@@ -1,0 +1,28 @@
+[tool.poetry]
+name = "celery-text2image"
+version = "0.1.0"
+description = ""
+authors = ["kohei <koheitech001@gmail.com>"]
+license = "Apach-2.0"
+readme = "README.md"
+packages = [{include = "celery_text2image"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+celery = "^5.2.7"
+redis = "^4.5.4"
+diffusers = "^0.16.1"
+torch = "^2.0.0+cpu"
+transformers = "^4.28.1"
+accelerate = "^0.18.0"
+
+
+[[tool.poetry.source]]
+name = "torch"
+url = "https://download.pytorch.org/whl/cpu"
+default = false
+secondary = false
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
