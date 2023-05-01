@@ -26,12 +26,12 @@ class Config():
     model_device: str
     rabbitmq_url: str
     redis_url: str
-    producer_url: Optional[str]
-    minio_url: Optional[str]
-    minio_access_key: Optional[str]
-    minio_secret_key: Optional[str]
-    minio_bucket_name: Optional[str]
-    minio_secure: Optional[str]
+    producer_url: Optional[str] = None
+    minio_url: Optional[str] = None
+    minio_access_key: Optional[str] = None
+    minio_secret_key: Optional[str] = None
+    minio_bucket_name: Optional[str] = None
+    minio_secure: Optional[str] = None
     # minio_object_name: Optional[str]
     # imsize_h: int
     # imsize_w: int
