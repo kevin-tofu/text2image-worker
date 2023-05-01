@@ -1,4 +1,4 @@
-# from typing import NamedTuple
+from PIL import Image
 from src.config import Config
 from diffusers import StableDiffusionPipeline
 # import torch
@@ -29,12 +29,11 @@ class diffuser_host():
     def get_image(
         self,
         **kwargs
-    ):
+    ) -> Image:
         
         prompt = kwargs['prompt']
         image = self.pipe(prompt).images[0]
-        image.save(f"./temp/{prompt}.png")
-        print(type(image))
+        # print(type(image))
 
         return image
 
