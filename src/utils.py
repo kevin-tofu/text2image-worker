@@ -54,11 +54,12 @@ def post_image_minio(
     file_in_memory.seek(0)
     minio_object_name = f"{params['task_id']}.{image_extention}"
 
+    minio_secure = False if cfg.minio_secure is None else True
     minio_client = Minio(
         cfg.minio_url,
         access_key=cfg.minio_access_key,
         secret_key=cfg.minio_secret_key,
-        secure=False # When to use SSL/TLS it is True
+        secure=minio_secure # When to use SSL/TLS it is True
     )
 
     minio_client.put_object(

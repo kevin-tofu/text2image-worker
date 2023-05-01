@@ -31,6 +31,7 @@ class Config():
     minio_access_key: Optional[str]
     minio_secret_key: Optional[str]
     minio_bucket_name: Optional[str]
+    minio_secure: Optional[str]
     # minio_object_name: Optional[str]
     # imsize_h: int
     # imsize_w: int
