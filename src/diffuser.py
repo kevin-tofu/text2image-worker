@@ -24,7 +24,7 @@ class diffuser_host():
 
         # prompt = "a photo of an astronaut riding a horse on mars"
         
-    def get_image(
+    def generate_image(
         self,
         **kwargs
     ) -> Image:
