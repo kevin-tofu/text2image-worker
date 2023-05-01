@@ -5,7 +5,6 @@ from src.logconf import mylogger
 logger = mylogger(__name__)
 
 
-
 def post_image_http(
     image: PIL.Image,
     **params
@@ -13,17 +12,18 @@ def post_image_http(
     
     import requests
 
+    logger.info(f"task_id: {params['task_id']}")
     image_extention = params['image_extention'] if 'png' in params.keys() else 'png'
     image_quality = params['image_quality'] if 'image_quality' in params.keys() else 100
     file_in_memory = io.BytesIO()
     image.save(file_in_memory, image_extention, quality=image_quality)
     file_in_memory.seek(0)
 
-    print(len(file_in_memory))
+    # print(len(file_in_memory))
     # print(type(self))
     # print(self.request)
     # print(f'self.request.id: {self.request.id}')
-    # print(f'task_id: {task_id}')
+    
 
     file = {
        'image': (
@@ -32,11 +32,11 @@ def post_image_http(
             f'image/{image_extention}'
         )
     }
-    # res = requests.post(
-    #     url=cfg.producer_url,
-    #     files=file,
-    #     params=dict(task_id='task_id')
-    # )
+    res = requests.post(
+        url=cfg.producer_url,
+        files=file,
+        params=dict(task_id=params['task_id'])
+    )
 
 
 def post_image_minio(
