@@ -46,12 +46,14 @@ def post_image_minio(
 
     from minio import Minio
 
+    logger.info(f"task_id: {params['task_id']}")
     image_extention = params['image_extention'] if 'png' in params.keys() else 'png'
     image_quality = params['image_quality'] if 'image_quality' in params.keys() else 100
     file_in_memory = io.BytesIO()
     image.save(file_in_memory, image_extention, quality=image_quality)
     file_in_memory.seek(0)
 
+    minio_object_name = f"{params['task_id']}.{image_extention}"
     minio_client = Minio(
         cfg.minio_url,
         access_key=cfg.minio_access_key,
@@ -59,9 +61,11 @@ def post_image_minio(
         secure=False # When to use SSL/TLS it is True
     )
 
+    
+
     minio_client.put_object(
         bucket_name=cfg.minio_bucket_name,
-        object_name=cfg.minio_object_name,
+        object_name=minio_object_name,
         data=file_in_memory.getvalue(),
         length=len(file_in_memory.getvalue()),
         content_type=f"image/{image_extention}"
