@@ -24,8 +24,6 @@ class diffuser_host():
 
         # prompt = "a photo of an astronaut riding a horse on mars"
         
-
-    
     def get_image(
         self,
         **kwargs
@@ -37,3 +35,18 @@ class diffuser_host():
 
         return image
 
+
+if __name__ == '__main__':
+
+    from src.config import Config
+    cfg = Config(
+        '',
+        '',
+        'runwayml/stable-diffusion-v1-5',
+        './model',
+        'cpu',
+        '',
+        '',
+        ''
+    )
+    host = diffuser_host(cfg)

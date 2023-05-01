@@ -7,8 +7,9 @@ VERSION = os.getenv('VERSION', 'v0.0.1'),
 AUTHOR = os.getenv('AUTHOR', 'kevin')
 
 MODEL_ID = os.getenv('MODEL_ID', 'runwayml/stable-diffusion-v1-5')
-MODEL_DEVICE = os.getenv('MODEL_DEVICE', 'cpu')
 MODEL_PATH = os.getenv('MODEL_PATH', '../model')
+MODEL_DEVICE = os.getenv('MODEL_DEVICE', 'cpu')
+
 # IMSIZE_H = os.getenv('IMSIZE_H', 512)
 # IMSIZE_W = os.getenv('IMSIZE_W', 512)
 
