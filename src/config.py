@@ -17,6 +17,12 @@ RABBITMQ_URL = os.getenv('RABBITMQ_URL', 'amqp://localhost:6380')
 REDIS_URL = os.getenv('REDIS_URL', 'redis://localhost:6379/0')
 PRODUCER_URL = os.getenv('PRODUCER_URL', 'http://localhost:3333')
 
+MINIO_URL = os.getenv('MINIO_URL', None)
+MINIO_ACCESS_KEY = os.getenv('MINIO_ACCESS_KEY', None)
+MINIO_SECRET_KEY = os.getenv('MINIO_SECRET_KEY', None)
+MINIO_BUCKET_NAME = os.getenv('MINIO_BUCKET_NAME', None)
+MINIO_SECURE = os.getenv('MINIO_SECURE', None)
+
 
 @dataclass(slots=True)
 class Config():
@@ -45,7 +51,12 @@ config_org = Config(
     MODEL_DEVICE,
     RABBITMQ_URL,
     REDIS_URL,
-    PRODUCER_URL
+    PRODUCER_URL,
+    MINIO_URL,
+    MINIO_ACCESS_KEY,
+    MINIO_SECRET_KEY,
+    MINIO_BUCKET_NAME,
+    MINIO_SECURE
 )
 
 

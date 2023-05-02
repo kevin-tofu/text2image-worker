@@ -2,7 +2,7 @@
 
 ## SetUp
 
-### Redis & RabbitMQ Preparation
+### launch Redis & RabbitMQ
 
 ```bash
 docker-compose -f docker/docker-compose.yml up -d
@@ -43,3 +43,17 @@ poetry run python -m celery  -A tasks worker --loglevel=info --concurrency=1
 ```
 
 ## Environment Variables
+
+| Name | type | Example | Description |
+| --- | --- | --- | --- |
+| MODEL_ID | str | 'runwayml/stable-diffusion-v1-5' |  |
+| MODEL_PATH | str | './model' |  |
+| MODEL_DEVICE | str | 'cpu' |  |
+| RABBITMQ_URL | str | 'amqp://localhost:6380' |  |
+| REDIS_URL | str | 'redis://localhost:6379/0' |  |
+| PRODUCER_URL | str | 'http://localhost:3333' |  |
+| MINIO_URL | str | '' |  |
+| MINIO_ACCESS_KEY | str | '' |  |
+| MINIO_SECRET_KEY | str | '' |  |
+| MINIO_BUCKET_NAME | str | '' |  |
+| MINIO_SECURE | str | '' |  |
