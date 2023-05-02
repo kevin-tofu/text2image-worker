@@ -46,6 +46,8 @@ poetry run python -m celery  -A tasks worker --loglevel=info --concurrency=1
 
 | Name | type | Example | Description |
 | --- | --- | --- | --- |
+| VERSION | str | {COMMIT_SHA} |  |
+| MANAGER | str | 'myname' |  |
 | MODEL_ID | str | 'runwayml/stable-diffusion-v1-5' |  |
 | MODEL_PATH | str | './model' |  |
 | MODEL_DEVICE | str | 'cpu' |  |

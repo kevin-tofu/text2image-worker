@@ -4,7 +4,7 @@ from typing import Optional
 from dataclasses import dataclass
 
 VERSION = os.getenv('VERSION', 'v0.0.1'),
-AUTHOR = os.getenv('AUTHOR', 'kevin')
+MANAGER = os.getenv('MANAGER', 'kevin')
 
 MODEL_ID = os.getenv('MODEL_ID', 'runwayml/stable-diffusion-v1-5')
 MODEL_PATH = os.getenv('MODEL_PATH', '../model')
@@ -27,7 +27,7 @@ MINIO_SECURE = os.getenv('MINIO_SECURE', None)
 @dataclass(slots=True)
 class Config():
     version: str
-    author: str
+    manager: str
     model_id: str
     model_path: str
     model_device: str
@@ -45,7 +45,7 @@ class Config():
 
 config_org = Config(
     VERSION,
-    AUTHOR,
+    MANAGER,
     MODEL_ID,
     MODEL_PATH,
     MODEL_DEVICE,
