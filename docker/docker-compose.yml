@@ -1,0 +1,17 @@
+version: '3.6'
+services:
+  rabbit:
+    image: rabbitmq:3-management
+    volumes:
+    - ./rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf:ro
+    ports:
+      - '6380:5672'
+      # - '6380:15672'
+
+  redis:
+    image: redis:latest
+    volumes:
+      - ./redis.conf:/redis.conf:ro
+    ports:
+      - '6379:6379'
+    command: [ "redis-server", "/redis.conf" ]
